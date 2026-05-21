@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://studyverse-backend-r31i.onrender.com/api',
+  baseURL: 'https://studyverse-backend-r31i.onrender.com',
   headers: {
   },
 });
