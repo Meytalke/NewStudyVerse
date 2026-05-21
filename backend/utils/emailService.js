@@ -14,7 +14,7 @@ const transporter = nodemailer.createTransport({
 });
 
 exports.sendVerificationEmail = async (to, token) => {
-  const frontendBaseUrl = 'http://localhost:3000';
+  const frontendBaseUrl = 'https://new-study-verse.vercel.app';
   const verificationUrl = `${frontendBaseUrl}/verify-email/${token}`;
 
   const mailOptions = {
@@ -50,7 +50,7 @@ exports.sendVerificationEmail = async (to, token) => {
 };
 
 exports.sendResetPasswordEmail = async (to, token) => {
-  const frontendBaseUrl = 'http://localhost:3000';
+  const frontendBaseUrl = 'https://new-study-verse.vercel.app';
   const resetUrl = `${frontendBaseUrl}/reset-password/${token}`;
 
   const mailOptions = {
@@ -88,7 +88,7 @@ exports.sendResetPasswordEmail = async (to, token) => {
 
 
 exports.sendGroupJoinConfirmationEmail = async (to, groupName, groupId) => {
-    const frontendBaseUrl = 'http://localhost:3000';
+    const frontendBaseUrl = 'https://new-study-verse.vercel.app';
     const groupUrl = `${frontendBaseUrl}/groups/${groupId}/dashboard`; 
 
     const mailOptions = {
@@ -128,7 +128,7 @@ exports.sendGroupJoinConfirmationEmail = async (to, groupName, groupId) => {
 };
 
 exports.sendCommentNotificationEmail = async (to, commenterName, postTitle, postId, commentContent, groupId = null, groupName = null) => {
-    const frontendBaseUrl = 'http://localhost:3000';
+    const frontendBaseUrl = 'https://new-study-verse.vercel.app';
     const postUrl = `${frontendBaseUrl}//posts/${postId}`
 
     const mailOptions = {
@@ -171,7 +171,7 @@ exports.sendCommentNotificationEmail = async (to, commenterName, postTitle, post
 };
 
 exports.sendLikeNotificationEmail = async (toEmail, likerUserId, targetType, targetId, targetTitle, postIdIfComment = null) => {
-    const frontendBaseUrl = 'http://localhost:3000';
+    const frontendBaseUrl = 'https://new-study-verse.vercel.app';
 
     let subject = "";
     let htmlContent = "";
@@ -246,7 +246,7 @@ exports.sendLikeNotificationEmail = async (toEmail, likerUserId, targetType, tar
 
 exports.sendNewChatMessageNotificationEmail = async (to, senderName, messageContent) => {
     console.log("i'm on sendNewChatMessageNotificationEmail")
-    const frontendBaseUrl = 'http://localhost:3000';
+    const frontendBaseUrl = 'https://new-study-verse.vercel.app';
     const chatUrl = `${frontendBaseUrl}/chat`; 
 
     const mailOptions = {
