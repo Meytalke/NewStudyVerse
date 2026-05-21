@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000/api',
+  baseURL: 'https://studyverse-backend-r31i.onrender.com/api',
   headers: {
   },
 });
