@@ -33,8 +33,9 @@ const server = http.createServer(app); // Create HTTP server from Express app, f
 const frontendUrl = config.FRONTEND_URL || 'http://localhost:3000';
 const allowedOrigins = [
     frontendUrl,
-    'http://localhost:3000',
-    'http://localhost:3001' 
+    ,
+    'http://localhost:3001' ,
+    'https://new-study-verse.vercel.app'
 ];
 
 const corsOptions = {
