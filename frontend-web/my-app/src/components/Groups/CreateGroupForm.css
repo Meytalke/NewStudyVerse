@@ -1,0 +1,149 @@
+.container {
+  background-color: #f7fafc;
+  border-radius: 0.75rem; 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+  padding: 2rem; 
+  width: 100%;
+  max-width: 600px; 
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 2.25rem; 
+  font-weight: 700; 
+  color: #2d3748;
+  margin-bottom: 1.5rem; 
+  text-align: center; 
+}
+
+.error {
+  background-color: #fdecea; 
+  border-radius: 0.5rem; 
+  padding: 1rem; 
+  color: #c53030; 
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.error svg {
+  margin-right: 0.75rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; 
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 500; 
+  color: #4a5568;
+  margin-bottom: 0.5rem; 
+}
+
+.input,
+.textarea,
+.select {
+  border: 1px solid #e0e6ed; 
+  border-radius: 0.5rem;
+  padding: 0.75rem; 
+  font-size: 1rem;
+  color: #2d3748;
+  transition: border-color 0.15s ease-in-out;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: #63b3ed; 
+  box-shadow: 0 0 0 0.2rem rgba(99, 179, 237, 0.25);
+}
+
+.validationError {
+  color: #e53e3e;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.privateGroup {
+  background-color: #edf2f7;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.privateGroupLabel {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+.privateGroupLabel input[type="checkbox"] {
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  accent-color: #63b3ed; 
+}
+
+.privateGroupInfo {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+.privateGroupInfo svg {
+  margin-right: 0.5rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
+}
+
+.cancelButton,
+.createButton {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.15s ease-in-out;
+}
+
+.cancelButton {
+  background-color: #edf2f7;
+  color: #4a5568;
+  margin-right: 0.75rem;
+}
+
+.cancelButton:hover {
+  background-color: #d3dbe6;
+}
+
+.createButton {
+  background-color: #4299e1; 
+  color: white;
+}
+
+.createButton:hover {
+  background-color: #3182ce;
+}
+
+.createButton:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}

@@ -1,0 +1,424 @@
+.group-settings-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    animation: fadeIn 0.5s ease-out; 
+    direction: ltr; 
+}
+
+.group-settings-container.loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #555;
+    padding: 3rem 0;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.back-button {
+    background: none;
+    border: none;
+    color: #4f46e5; 
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    transition: color 0.2s ease;
+}
+
+.back-button:hover {
+    color: #3730a3;
+}
+
+.back-button-icon {
+    margin-top: -2px;
+}
+
+.group-settings-container h1 {
+    font-size: 2.5rem; 
+    color: #4f46e5; 
+    margin-bottom: 0.8rem;
+    text-align: center;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #e0e7ff; 
+}
+
+.group-settings-container .group-id {
+    font-size: 0.85rem;
+    color: #999;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.error-message {
+    color: #d90429;
+    background-color: #ffdde0;
+    border: 1px solid #d90429;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin: 1.5rem 0;
+    font-weight: 500;
+}
+
+.not-found-container {
+    text-align: center;
+    padding: 3rem 0;
+}
+
+.not-found-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.not-found-title {
+    font-size: 2rem;
+    color: #374151; 
+    margin-bottom: 0.8rem;
+}
+
+.not-found-message {
+    font-size: 1.1rem;
+    color: #6b7280;
+    margin-bottom: 2rem;
+}
+
+.back-to-groups-link {
+    background-color: #4f46e5;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-to-groups-link:hover {
+    background-color: #4338ca;
+    box-shadow: 0 4px 10px rgba(79, 70, 229, 0.4);
+}
+
+.back-button-error {
+    background-color: #6b7280; 
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-button-error:hover {
+    background-color: #4b5563;
+}
+
+
+.settings-section {
+    background-color: #f8faff; 
+    border: 1px solid #e0e7ff;
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.settings-section .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #e9e9f2;
+    padding-bottom: 1rem;
+}
+
+.settings-section h2 {
+    font-size: 1.8rem;
+    color: #374151;
+}
+
+.action-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.edit-button-icon {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+}
+
+.edit-button-icon:hover {
+    background-color: #4338ca;
+    box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}
+
+.save-button-icon {
+    background-color: #22c55e;
+    color: white;
+    border: none;
+}
+
+.save-button-icon:hover {
+    background-color: #16a34a;
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.3);
+}
+
+.cancel-button-icon {
+    background-color: #e2e8f0; 
+    color: #4b5563; 
+    border: 1px solid #cbd5e1;
+}
+
+.cancel-button-icon:hover {
+    background-color: #cbd5e1;
+}
+
+.edit-buttons-group {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.edit-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns for fields on wider screens */
+    gap: 1.5rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field label {
+    font-weight: 600;
+    color: #4b5563; 
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.settings-input, .settings-textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #d1d5db; 
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #333;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box; 
+}
+
+.settings-input:focus, .settings-textarea:focus {
+    outline: none;
+    border-color: #4f46e5; 
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); 
+}
+
+.settings-textarea {
+    min-height: 120px;
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.checkbox-field {
+    flex-direction: row; /* Checkbox and label in one row */
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.settings-checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: #4f46e5; 
+    cursor: pointer;
+}
+
+.group-details-display p {
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+    color: #555;
+}
+
+.group-details-display p strong {
+    color: #333;
+    margin-right: 0.5rem;
+}
+
+.member-list {
+    list-style: none;
+    padding: 0;
+    max-height: 300px; 
+    overflow-y: auto; 
+    border: 1px solid #e0e7ff;
+    border-radius: 8px;
+    background-color: #ffffff;
+}
+
+.member-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.2rem;
+    border-bottom: 1px solid #eef2ff; 
+}
+
+.member-item:last-child {
+    border-bottom: none; 
+}
+
+.member-info {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.member-avatar-small {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #4f46e5;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    flex-shrink: 0; 
+}
+
+.member-username {
+    font-weight: 600;
+    color: #374151;
+}
+
+.member-email {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-left: 0.5rem;
+}
+
+.remove-member-button {
+    background-color: #fef2f2; 
+    color: #ef4444; 
+    border: 1px solid #fca5a5; 
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    white-space: nowrap;
+}
+
+.remove-member-button:hover {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border-color: #ef4444;
+    box-shadow: 0 2px 5px rgba(239, 68, 68, 0.2);
+}
+
+.no-members-message {
+    text-align: center;
+    color: #777;
+    padding: 1.5rem;
+    font-style: italic;
+}
+
+.danger-zone {
+    background-color: #fff5f5; 
+    border: 1px solid #fecaca; 
+    text-align: center;
+}
+
+.danger-zone p {
+    color: #d90429; 
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+.delete-group-button {
+    background-color: #ef4444; 
+    color: white;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: inline-flex; 
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.delete-group-button:hover {
+    background-color: #dc2626;
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.4);
+}
+
+@media (max-width: 768px) {
+    .group-settings-container {
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+    .group-settings-container h1 {
+        font-size: 2rem;
+    }
+    .settings-section {
+        padding: 1rem;
+    }
+    .edit-form-grid {
+        grid-template-columns: 1fr; 
+    }
+    .action-button {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    .edit-buttons-group {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    .save-button-icon, .cancel-button-icon {
+        width: 100%;
+        justify-content: center;
+    }
+    .member-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.8rem;
+    }
+    .member-info {
+        width: 100%;
+    }
+    .remove-member-button {
+        width: 100%;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+}

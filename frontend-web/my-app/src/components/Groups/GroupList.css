@@ -1,0 +1,128 @@
+.groupListContainer {
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow-x: auto; /* Allows horizontal scrolling if the table is too wide */
+}
+
+.groupsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  overflow: hidden; /* Hides overflow beyond the rounded corners */
+}
+
+.groupsTable th,
+.groupsTable td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+}
+
+.groupsTable th {
+  background-color: #f8f8f8;
+  font-weight: bold;
+  color: #333;
+}
+
+.groupsTable tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.groupsTable tbody tr:hover {
+  background-color: #eaeaea;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.noResults {
+  padding: 2rem;
+  text-align: center;
+  color: #777;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end; /* Align buttons to the right */
+}
+
+.actions button {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.view-details-btn {
+  background-color: #6366f1;
+  color: white;
+}
+
+.view-details-btn:hover {
+  background-color: #4f46e5;
+}
+
+.join-btn {
+  background-color: #38b000;
+  color: white;
+}
+
+.join-btn.private {
+  background-color: #ffb703;
+  color: #333;
+}
+
+.join-btn:hover {
+  background-color: #2e8b00;
+}
+
+.join-btn.private:hover {
+  background-color: #e6a800;
+}
+
+.view-group-btn {
+  background-color: #02c39a;
+  color: white;
+}
+
+.view-group-btn:hover {
+  background-color: #01a27f;
+}
+
+.edit-btn {
+  background-color: #03a9f4;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #0288d1;
+}
+
+.delete-btn {
+  background-color: #d9230f;
+  color: white;
+}
+
+.delete-btn:hover {
+  background-color: #b81c09;
+}
+
+.requests-btn {
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.2s ease;
+  margin-left: 5px; /* Adds a little space from other buttons */
+}
+
+.requests-btn:hover {
+  background-color: #7c3aed;
+}

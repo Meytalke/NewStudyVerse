@@ -1,0 +1,507 @@
+.nav-footer-style {
+    background: linear-gradient(to bottom right, #eef2ff, #f3e8ff);
+    box-shadow: inset 0 -2px 4px rgba(0, 0, 0, 0.05); 
+    transition: all 0.3s ease;
+    padding: 1rem 0; 
+    color: #312e81;
+}
+
+.nav-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    direction: inherit;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    
+    transition: transform 0.3s ease;
+}
+
+.nav-logo:hover {
+    transform: scale(1.02);
+}
+
+.logo-image {
+    height: 2rem; 
+    width: auto;
+    filter: none; 
+}
+
+.logo-text {
+    margin-inline-start: 0.5rem;
+    font-size: 1.25rem; 
+    font-weight: 600; 
+    color: inherit;
+    letter-spacing: 0.3px;
+}
+
+.nav-links-desktop {
+    display: flex;
+    margin-inline-start: 1rem;
+}
+
+.nav-link {
+    position: relative;
+    color: inherit; 
+    font-weight: 400; 
+    padding: 0.75rem 1rem;
+    margin: 0 0.15rem; 
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #4f46e5; 
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0.2rem;
+    left: 50%;
+    width: 0;
+    height: 2px; 
+    background-color: #6366f1; 
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    border-radius: 1px;
+}
+
+.nav-link:hover::after {
+    width: 50%;
+}
+
+.nav-link-active {
+    color: #4f46e5;
+    font-weight: 500;
+}
+
+.nav-link-active::after {
+    width: 50%;
+    background-color: #6366f1;
+}
+
+.nav-icon-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem; 
+    height: 2rem; 
+    color: inherit;
+    border-radius: 50%;
+    transition: background-color 0.25s ease, color 0.25s ease;
+    background: transparent; 
+    margin-inline: 0.25rem;
+}
+
+.nav-icon-btn:hover {
+    background-color: rgba(79, 70, 229, 0.1); 
+    color: #4f46e5;
+    transform: translateY(0); 
+}
+
+.nav-icon-btn svg {
+    width: 1rem;
+    height: 1rem;
+    transition: all 0.25s ease;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -3px;
+    inset-inline-end: -3px;
+    width: 14px;
+    height: 14px;
+    background-color: #ef4444;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.6rem; 
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eef2ff;
+}
+
+.user-avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(79, 70, 229, 0.3);
+    transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none;
+}
+
+.user-avatar:hover {
+    border-color: #4f46e5;
+    transform: scale(1.05);
+    box-shadow: none; 
+}
+
+.dropdown {
+    inset-inline-end: 0; 
+    top: 100%;
+    width: 14rem;
+    margin-top: 0.25rem; 
+    background: white;
+    border-radius: 0.3rem;
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.08), 0 5px 5px -5px rgba(0, 0, 0, 0.02); /* צל עדין יותר */
+    overflow: hidden;
+    transform-origin: top right;
+    transform: scale(0.98);
+    opacity: 0;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    z-index: 50;
+}
+
+[dir="rtl"] .dropdown {
+    transform-origin: top left;
+}
+
+.dropdown.open {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dropdown-header {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+}
+
+.dropdown-name {
+    font-weight: 500; 
+    color: #111827;
+    margin-bottom: 0.1rem; 
+}
+
+.dropdown-email {
+    font-size: 0.7rem; 
+    color: #6b7280;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    color: #374151;
+    transition: all 0.15s ease;
+    font-weight: 400
+}
+
+.dropdown-item:hover {
+    background-color: #f3f4f6;
+    color: #4f46e5;
+}
+
+.dropdown-item svg {
+    width: 1rem;
+    height: 1rem;
+    margin-inline-end: 0.5rem;
+    color: #6b7280;
+}
+
+.dropdown-item:hover svg {
+    color: #4f46e5;
+}
+
+[dir="rtl"] .dropdown-item {
+    flex-direction: row-reverse; /* הופך את סדר האייקון והטקסט */
+}
+[dir="rtl"] .dropdown-item svg {
+    /* מאפס את הרווח המקורי ומוסיף רווח בצד השני */
+    margin-inline-end: 0;
+    margin-inline-start: 0.5rem; 
+}
+.dropdown-divider {
+    height: 1px;
+    background-color: #e5e7eb;
+    margin: 0.1rem 0;
+}
+
+.dropdown-logout {
+    color: #ef4444;
+}
+
+.dropdown-logout:hover {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.search-container {
+    position: relative;
+}
+
+.search-dropdown {
+    width: 18rem; 
+}
+
+.search-form {
+    display: flex;
+    padding: 0.5rem;
+}
+
+.search-input {
+    flex: 1;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-start-start-radius: 0.2rem;
+    border-end-start-radius: 0.2rem;
+    border-start-end-radius: 0;
+    border-end-end-radius: 0;
+    font-size: 0.8rem; 
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.1);
+}
+
+.search-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.75rem;
+    background-color: #4f46e5;
+    color: white;
+    font-weight: 500;
+    border-start-end-radius: 0.2rem;
+    border-end-end-radius: 0.2rem;
+    border-start-start-radius: 0;
+    border-end-start-radius: 0;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    background-color: #4338ca;
+}
+
+.auth-buttons {
+    display: flex;
+    align-items: center;
+    max-width: 1280px;
+    gap: 0.8rem; 
+}
+
+.auth-buttons .login-button,
+.auth-buttons .register-button {
+    color: #4f46e5; 
+    font-weight: 600;
+    padding: 0.5rem 0.2rem; 
+    height: 2.5rem; 
+    width: 6.5rem; 
+    border-radius: 0.4rem; 
+    transition: all 0.25s ease; 
+    background-color: transparent; 
+    border: none; 
+    text-decoration: none; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    white-space: nowrap; /* מונע שבירת שורות בטקסט */
+    box-sizing: border-box; 
+    cursor: pointer; 
+    font-size: 0.95rem; 
+}
+
+.auth-buttons .login-button:hover,
+.auth-buttons .register-button:hover {
+    background-color: rgba(79, 70, 229, 0.1); 
+    color: #4f46e5;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
+}
+.auth-buttons .login-button,
+.auth-buttons .register-button {
+    color: #4f46e5;
+}
+
+
+.mobile-menu-button {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2rem; 
+    height: 2rem; 
+    color: inherit; 
+    border-radius: 0.2rem; 
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mobile-menu-button:hover {
+    background: rgba(79, 70, 229, 0.05);
+    color: #4f46e5;
+}
+
+.mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 5px 10px -3px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03); 
+    padding: 0.25rem 0; 
+    z-index: 40;
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu.open {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+.mobile-link {
+    display: block;
+    padding: 0.5rem 1rem; 
+    color: #1f2937;
+    text-align: start;
+    font-weight: 400; 
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.mobile-link:hover {
+    background-color: #f3f4f6;
+    color: #4f46e5;
+}
+
+.mobile-link-active {
+    color: #4f46e5;
+    background-color: #eff6ff;
+}
+
+@media (max-width: 768px) {
+    .nav-links-desktop {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        display: flex;
+    }
+
+    .auth-buttons {
+        display: none;
+    }
+
+    .mobile-auth {
+        display: flex;
+        flex-direction: column;
+        padding: 0.25rem 1rem 0.5rem;
+    }
+
+    .mobile-auth-button {
+        padding: 0.4rem 0; 
+        text-align: center;
+        border-radius: 0.2rem; 
+        font-weight: 500;
+        margin-top: 0.25rem; 
+    }
+
+    .mobile-login {
+        background-color: #f3f4f6;
+        color: #1f2937;
+    }
+
+    .mobile-register {
+        background-color: #4f46e5;
+        color: white;
+        margin-top: 0.5rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px); 
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.2s ease forwards;
+}
+.nav-scrolled {
+    background: rgba(239, 246, 255, 0.8); 
+    backdrop-filter: blur(6px); 
+    padding: 0.5rem 0; 
+    box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.05), 0 1px 3px -1px rgba(0, 0, 0, 0.03);
+    color: #374151; 
+}
+
+.nav-scrolled .nav-logo .logo-text,
+.nav-scrolled .nav-link,
+.nav-scrolled .nav-icon-btn,
+.nav-scrolled .login-button,
+.nav-scrolled .register-button {
+    color: #374151;
+}
+
+.nav-scrolled .nav-link::after {
+    background-color: #6366f1;
+}
+
+/* Language Toggle Button Style (עיצוב 1) */
+.language-toggle-btn {
+  /* מראה בסיסי */
+  background-color: #f0f4f8; 
+  color: #312e81;
+  border: 1px solid #d1d5db; 
+  border-radius: 8px; /* פינות מעוגלות */
+  padding: 0.25rem 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.language-toggle-btn:hover {
+  background-color: #e2e8f0;
+  border-color: #aeb5be;
+}
+
+.language-toggle-btn .active-lang {
+  /* הדגשת השפה הפעילה */
+  color: #4f46e5; /* צבע כחול חזק */
+  font-weight: 700;
+  /* אפקט קטן */
+  transform: scale(1.1);
+  display: inline-block;
+}
+
+.language-toggle-btn .separator {
+  margin-inline: 0.4rem;
+  color: #aeb5be;
+}
+
+.flex-row-reverse {
+    flex-direction: row-reverse !important; 
+    direction: rtl;
+}
+
+[dir="rtl"] .nav-modern {
+    direction: rtl !important;
+}
+
+[dir="rtl"] .nav-container {
+    direction: rtl !important;
+    text-align: right;
+}

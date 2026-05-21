@@ -1,0 +1,256 @@
+.register-form-container {
+    display: flex;
+    direction: ltr; 
+}
+
+.register-form {
+    max-width: 700px; 
+    width: 100%;
+    background: #ffffff; 
+    border-radius: 12px; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 40px 45px; 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
+    border: 1px solid #e2e8f0; 
+    margin-top: 30px; 
+}
+[dir="rtl"] .register-form {
+    direction: rtl !important;
+}
+
+[dir="rtl"] .register-form-container {
+    direction: rtl !important;
+    text-align: right;
+}
+
+[dir="rtl"] .react-select-rtl .react-select__value-container {
+    /* יישור הטקסט שבתוך תיבת הבחירה */
+    direction: rtl; 
+    text-align: right;
+}
+
+[dir="rtl"] .react-select-rtl .react-select__placeholder {
+    /* יישור טקסט הפלייסהולדר */
+    text-align: right; 
+}
+
+[dir="rtl"] .react-select-rtl .react-select__indicator {
+    /* הזזת החץ/אינדיקטור לצד שמאל */
+    transform: scaleX(-1); /* היפוך החץ */
+}
+
+[dir="rtl"] .react-select-rtl .react-select__menu {
+    /* ודא שהתפריט הנפתח מיושר ימין */
+    text-align: right;
+}
+
+[dir="rtl"] .react-select-rtl .react-select__indicator-separator {
+    /* שינוי הרווח של המפריד */
+    margin-inline: 8px;
+}
+.register-form .text-center {
+    text-align: center;
+}
+
+.register-title {
+    color: #2c3e50;
+    font-size: 2.5rem; 
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.register-subtitle {
+    color: #607d8b; 
+    font-size: 1.05rem;
+    line-height: 1.5;
+}
+
+.register-grid-form {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 22px 30px; 
+    margin-top: 0;
+}
+
+@media (min-width: 768px) {
+    .register-grid-form {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .register-grid-form > .span-2-col {
+        grid-column: span 2;
+    }
+}
+
+.form-group-item {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 0;
+}
+
+.register-label {
+    display: block;
+    font-size: 0.95rem;
+    color: #4a6572;
+    margin-bottom: 7px; 
+    font-weight: 600;
+    text-align: start;
+}
+
+.register-input {
+    width: 100%;
+    padding: 13px 18px; 
+    border: 1px solid #cdd0d5; 
+    border-radius: 8px; 
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fdfdfd; 
+    line-height: 1.2; 
+}
+[dir="rtl"] .register-input {
+    padding-inline-start: 40px; 
+    padding-inline-end: 15px; 
+}
+[dir="rtl"] .password-toggle-button {
+    inset-inline-end: auto;
+}
+.register-input:focus {
+    outline: none;
+    border-color: #4a71f1; 
+    box-shadow: 0 0 0 3px rgba(74, 113, 241, 0.25); 
+}
+
+.input-error {
+    border-color: #ef4444; 
+}
+
+.error-message-inline {
+    font-size: 0.88rem;
+    color: #ef4444; 
+    margin-top: 6px; 
+    text-align: start;
+}
+
+
+.password-input-group {
+    position: relative;
+}
+
+.password-input-group .register-input {
+    padding-right: 50px; 
+}
+
+.password-toggle-button {
+    position: absolute;
+    inset-inline-end: 10px;
+    top: 50%; 
+    transform: translateY(-50%); 
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #9aa4b0;
+    font-size: 1.15rem;
+    padding: 5px;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+
+.password-toggle-button:hover {
+    color: #5d6d7e;
+}
+
+
+.react-select-container .react-select__control {
+    border: 1px solid #cdd0d5;
+    border-radius: 8px;
+    padding: 5px 8px; 
+    min-height: 48px; 
+    box-shadow: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background-color: #fdfdfd;
+}
+
+.react-select-container .react-select__control--is-focused {
+    outline: none;
+    border-color: #4a71f1;
+    box-shadow: 0 0 0 3px rgba(74, 113, 241, 0.25);
+}
+
+.react-select-container .react-select__placeholder {
+    color: #8c98a4; 
+    font-size: 1rem;
+}
+
+.react-select-container .react-select__single-value {
+    color: #333;
+    font-size: 1rem;
+}
+
+.react-select-container .react-select__menu {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 100; 
+}
+
+.react-select-container .react-select__option {
+    padding: 12px 15px;
+    font-size: 1rem;
+}
+
+.react-select-container .react-select__option--is-focused {
+    background-color: #e6f0fe;
+    color: #333;
+}
+
+.react-select-container .react-select__option--is-selected {
+    background-color: #4a71f1; 
+    color: white;
+}
+
+.select-error .react-select__control {
+    border-color: #ef4444 !important; 
+}
+
+.register-button {
+    grid-column: span 2; 
+    width: 100%;
+    padding: 14px 25px; 
+    background-color: #4a71f1;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    box-shadow: 0 5px 15px rgba(74, 113, 241, 0.25); 
+    margin-top: 10px; 
+}
+
+.register-button:hover:enabled {
+    background-color: #3b5cb0;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74, 113, 241, 0.35);
+}
+
+.register-button:disabled {
+    background-color: #b0c4de;
+    cursor: not-allowed;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+}
+
+.signup-prompt {
+    text-align: center;
+    margin-top: 20px; 
+}
