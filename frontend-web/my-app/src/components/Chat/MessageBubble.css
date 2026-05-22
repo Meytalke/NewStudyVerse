@@ -3,6 +3,7 @@
     align-items: flex-start;
     margin-bottom: 18px;
     max-width: 65%; 
+    box-sizing: border-box;
 }
 
 .own-message {
@@ -12,6 +13,13 @@
     margin-right: 0;
 }
 
+/* התאמה מורחבת ל-RTL של הודעות המשתמש עצמו */
+[dir="rtl"] .own-message {
+    margin-right: auto;
+    margin-left: 0;
+    flex-direction: row; /* הופך את הסדר הסימטרי בעברית */
+}
+
 .other-message {
     align-self: flex-start;
     flex-direction: row; 
@@ -19,6 +27,11 @@
     margin-left: 0;
 }
 
+[dir="rtl"] .other-message {
+    margin-left: auto;
+    margin-right: 0;
+    flex-direction: row-reverse;
+}
 
 .message-bubble {
     padding: 14px 20px;
@@ -27,6 +40,7 @@
     word-wrap: break-word; 
     white-space: pre-wrap; 
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); 
+    box-sizing: border-box;
 }
 
 .message-bubble.own {
@@ -36,6 +50,11 @@
     border: 1px solid #dce0ff; 
 }
 
+[dir="rtl"] .message-bubble.own {
+    border-bottom-right-radius: 24px;
+    border-bottom-left-radius: 8px; /* היפוך הפינה החתוכה בעברית */
+}
+
 .message-bubble.other {
     background-color: #ffffff; 
     color: #333;
@@ -43,10 +62,16 @@
     border: 1px solid #e7e7e7;
 }
 
+[dir="rtl"] .message-bubble.other {
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 8px;
+}
+
 .message-text {
     margin: 0;
     font-size: 1.05rem; 
     line-height: 1.6; 
+    text-align: start;
 }
 
 .message-meta {
@@ -59,7 +84,8 @@
 }
 
 .message-time {
-    margin-right: 10px; 
+    margin-inline-end: 10px; /* תמיכה בכיווניות */
+    margin-right: 0;
     opacity: 0.85; 
 }
 
@@ -69,33 +95,38 @@
     color: #4f46e5; 
 }
 
-.message-avatar {
-    width: 45px; 
-    height: 45px;
-    border-radius: 50%;
-    flex-shrink: 0; 
-    background-color: #dce0ff; 
-    display: flex; 
-    align-items: center;
-    justify-content: center; 
-    color: #4f46e5;
-    font-size: 1.1rem; 
-    font-weight: 600;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.message-avatar.other-avatar {
-    margin-right: 12px; 
-    margin-left: 0;
-}
-
-.message-avatar.own-avatar {
-    margin-left: 12px; 
-    margin-right: 0;
-}
-
+/* ==========================================================================
+   התאמות מובייל - הרחבת הבועות למניעת דחיסת מלל צר
+   ========================================================================== */
 @media (max-width: 768px) {
     .message-container {
-        max-width: 95%; 
+        max-width: 85% !important; 
+        margin-bottom: 12px; 
+    }
+
+    .message-bubble {
+        padding: 10px 15px; 
+        border-radius: 20px;
+    }
+
+    .message-bubble.own {
+        border-bottom-right-radius: 8px;
+    }
+    [dir="rtl"] .message-bubble.own {
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 8px;
+    }
+
+    .message-bubble.other {
+        border-bottom-left-radius: 8px;
+    }
+    [dir="rtl"] .message-bubble.other {
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 8px;
+    }
+
+    .message-text {
+        font-size: 0.95rem; 
+        line-height: 1.4;
     }
 }

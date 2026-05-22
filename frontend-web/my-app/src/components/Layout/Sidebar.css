@@ -2,12 +2,13 @@
     background: linear-gradient(to bottom, #f9fafb, #e5e7eb); 
     color: #374151; 
     border-right: 1px solid #d1d5db; 
-    transition: all 0.3s ease;
+    transition: width 0.3s ease, transform 0.3s ease; /* הוספת טרנזישן לתנועת מגירה */
     display: flex;
     flex-direction: column;
     height: 100%;
     overflow-y: auto;
     direction: ltr; 
+    box-sizing: border-box;
 }
 
 .sidebar-footer-style.sidebar-collapsed {
@@ -72,7 +73,7 @@
 }
 
 .user-info {
-    margin-left: 0.75rem;
+    margin-inline-start: 0.75rem; /* שינוי לרווח מבוסס כיווניות */
     opacity: 1;
     transition: opacity 0.3s ease;
 }
@@ -131,7 +132,7 @@
 }
 
 .nav-link-icon {
-    margin-right: 0.75rem;
+    margin-inline-end: 0.75rem; /* שינוי לרווח מבוסס כיווניות */
     min-width: 20px;
     display: flex;
     align-items: center;
@@ -193,7 +194,7 @@
 }
 
 .group-icon {
-    margin-right: 0.5rem;
+    margin-inline-end: 0.5rem; /* שינוי לרווח מבוסס כיווניות */
     color: #a5b4fc;
 }
 
@@ -244,9 +245,74 @@
     background: none;
     border: none;
     cursor: pointer;
+    box-sizing: border-box;
+}
+
+[dir="rtl"] .footer-link, [dir="rtl"] .logout-button {
+    text-align: right;
 }
 
 .footer-link:hover, .logout-button:hover {
     background-color: #edf2f7;
     color: #4f46e5;
+}
+
+/* ==========================================================================
+   התאמות מדויקות למובייל - העלמת חסימת הרווח ושימוש במגירה צפה
+   ========================================================================== */
+@media (max-width: 768px) {
+    .sidebar-footer-style {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1000; /* יושב מעל כל התוכן הפנימי */
+        box-shadow: 4px 0 25px rgba(0,0,0,0.15);
+        background: #ffffff; /* רקע אחיד ונקי למובייל */
+    }
+
+    /* במצב סגור במובייל הוא יוצא לחלוטין מהמסך כדי לפנות 100% מקום לקבוצות */
+    .sidebar-footer-style.sidebar-collapsed {
+        width: 240px;
+        transform: translateX(-100%);
+    }
+    
+    [dir="rtl"] .sidebar-footer-style.sidebar-collapsed {
+        transform: translateX(100%);
+    }
+
+    /* במצב פתוח הוא צף מעל התוכן בצורה מושלמת */
+    .sidebar-footer-style.sidebar-expanded {
+        width: 260px;
+        transform: translateX(0);
+    }
+    
+    /* מניעת שבירת רוחב של כפתורי הפעולה התחתונה */
+    .footer-link, .logout-button {
+        width: calc(100% - 1rem);
+    }
+}
+
+
+.mobile-logout-btn {
+    display: block;
+    width: 100%;
+    padding: 0.85rem 1rem;
+    color: #ef4444;
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    transition: background-color 0.15s ease;
+    text-align: start;
+    box-sizing: border-box;
+}
+[dir="rtl"] .mobile-logout-btn {
+    text-align: right;
+}
+
+.mobile-logout-btn:hover {
+    background-color: #fee2e2;
 }

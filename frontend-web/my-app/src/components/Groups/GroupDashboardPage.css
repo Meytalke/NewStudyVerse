@@ -40,7 +40,7 @@
     font-size: 2.5rem;
     color: #333;
     text-align: center;
-    flex-grow: 1; /* Allows title to take available space */
+    flex-grow: 1;
 }
 
 .header-actions {
@@ -312,7 +312,6 @@
 }
 
 .btn-secondary.clear-button {
-    /* סגנון כפתור */
     background-color: var(--button-secondary-bg);
     color: var(--button-secondary-text);
     border: 1px solid var(--button-secondary-border);
@@ -332,44 +331,6 @@
     color: var(--text-color-light);
     margin-top: 10px;
     font-style: italic;
-}
-
-@media (max-width: 768px) {
-    .group-dashboard-container {
-        padding: 1rem;
-        margin: 1rem auto;
-    }
-    .group-dashboard-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-    }
-    .group-title {
-        text-align: left;
-        margin-bottom: 0.5rem;
-    }
-    .header-actions {
-        width: 100%;
-        justify-content: space-around;
-        margin-top: 0.5rem;
-    }
-    .header-action-button {
-        flex: 1;
-        justify-content: center;
-    }
-    .group-meta {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    .group-dashboard-nav {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .nav-item {
-        flex: 1 1 auto;
-        text-align: center;
-        margin: 0.5rem 0;
-    }
 }
 
 .loading-spinner, .error-message, .unauthorized-message {
@@ -396,4 +357,130 @@
 
 .study-room-banner:hover {
     background-color: rgba(16, 185, 129, 0.2) !important;
+}
+
+/* ==========================================================================
+   התאמות מדויקות למובייל - מניעת גלילה אופקית ושמירה על העיצוב המקורי
+   ========================================================================== */
+@media (max-width: 768px) {
+    .group-dashboard-container {
+        padding: 1rem;
+        margin: 1rem auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .group-dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+    }
+    
+    .group-title {
+        text-align: start;
+        font-size: 1.8rem; /* מוקטן קלות שיתאים למסך הנייד */
+        margin: 0;
+        width: 100%;
+    }
+    
+    /* כפתורי ה-Header מסתדרים בצמד סימטרי ללא חריגה */
+    .header-actions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        width: 100%;
+    }
+    
+    .header-action-button {
+        width: 100%;
+        justify-content: center;
+        padding: 0.6rem 0.5rem;
+        font-size: 0.85rem;
+        box-sizing: border-box;
+    }
+    
+    .group-meta {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    /* תיקון הטאבים: במקום גלילה או דחיסה, הם מתחלקים ל-2 שורות מאוזנות ונקיות */
+    .group-dashboard-nav {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+        border-bottom: none;
+        background-color: #f1f5f9;
+        border-radius: 8px;
+        padding: 4px;
+        box-sizing: border-box;
+    }
+    
+    .nav-item {
+        justify-content: center;
+        text-align: center;
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+        border-bottom: none;
+        border-radius: 6px;
+        transition: all 0.15s ease;
+    }
+    
+    .nav-item.active {
+        background-color: #ffffff;
+        color: #4f46e5;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    
+    .group-content {
+        padding: 1.5rem 1rem;
+    }
+
+    .create-post-button {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    /* פריסת חיפוש הפוסטים בטור אחד מלא ונקי */
+    .post-search-section {
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .post-search-form {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .my-posts-toggle {
+        margin-top: 5px;
+    }
+
+    .search-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .search-buttons button, 
+    .btn-secondary.clear-button {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    /* מודל מחיקה רספונסיבי */
+    .delete-confirm-modal {
+        max-width: 90%;
+        padding: 1.25rem;
+    }
+    
+    .confirm-delete-btn, .cancel-delete-btn {
+        width: calc(50% - 1rem);
+        margin: 0.5rem;
+        display: inline-block;
+        box-sizing: border-box;
+    }
 }

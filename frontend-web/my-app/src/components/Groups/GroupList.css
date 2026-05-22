@@ -2,7 +2,7 @@
   padding: 1.5rem;
   border-radius: 0.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  overflow-x: auto; /* Allows horizontal scrolling if the table is too wide */
+  overflow-x: auto; /* משאיר תמיכה למחשב אם הטבלה רחבה מדי */
 }
 
 .groupsTable {
@@ -11,7 +11,7 @@
   margin-top: 1rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   border-radius: 0.5rem;
-  overflow: hidden; /* Hides overflow beyond the rounded corners */
+  overflow: hidden;
 }
 
 .groupsTable th,
@@ -45,7 +45,7 @@
 .actions {
   display: flex;
   gap: 0.5rem;
-  justify-content: flex-end; /* Align buttons to the right */
+  justify-content: flex-end;
 }
 
 .actions button {
@@ -120,9 +120,108 @@
   cursor: pointer;
   font-size: 0.9em;
   transition: background-color 0.2s ease;
-  margin-left: 5px; /* Adds a little space from other buttons */
+  margin-left: 5px;
 }
 
 .requests-btn:hover {
   background-color: #7c3aed;
+}
+
+/* ==========================================================================
+   התאמות מדויקות למובייל - מניעת גלילה אופקית ושמירה על העיצוב המקורי
+   ========================================================================== */
+@media (max-width: 768px) {
+  .groupListContainer {
+    padding: 0.75rem;
+    overflow-x: hidden; /* מניעת גלילה אופקית לחלוטין במובייל */
+  }
+
+  .groupsTable {
+    display: block; /* שבירת מבנה הטבלה הנוקשה */
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .groupsTable thead {
+    display: none; /* הסתרת שורת הכותרות המקורית שלא מתאימה למובייל */
+  }
+
+  .groupsTable tbody {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .groupsTable tr {
+    display: flex;
+    flex-direction: column; /* הפיכת השורה לכרטיס אנכי */
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  .groupsTable tbody tr:nth-child(even) {
+    background-color: #ffffff; /* ביטול הרקע המתחלף במובייל לטובת מראה כרטיסים נקי */
+  }
+
+  .groupsTable tbody tr:hover {
+    background-color: #ffffff; /* ביטול אפקט ה-hover של השורה במובייל */
+  }
+
+  .groupsTable td {
+    display: flex;
+    justify-content: space-between; /* שם השדה משמאל והערך מימין */
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: right;
+  }
+
+  .groupsTable td:last-child {
+    border-bottom: none;
+    padding-top: 1rem;
+    flex-direction: column; /* שדה הכפתורים מקבל פריסה פנימית משלו */
+    align-items: stretch;
+  }
+
+  /* שימוש ב-attr קלאסי כדי להציג את כותרת השדה באופן רספונסיבי */
+  .groupsTable td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #4a5568;
+    font-size: 0.85rem;
+    text-align: left;
+  }
+
+  /* סידור כפתורי הפעולה בגריד גמיש כדי למנוע דחיסה או יציאה מהמסך */
+  .actions {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 כפתורים בשורה בצורה סימטרית */
+    gap: 0.5rem;
+    width: 100%;
+    justify-content: content;
+  }
+
+  .actions button {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 0.65rem 0.5rem;
+    font-size: 0.85rem;
+    box-sizing: border-box;
+    margin: 0 !important; /* איפוס המרווחים הישנים */
+  }
+
+  /* כפתור הבקשות המיוחד יקבל שורה שלמה משל עצמו בנייד בגלל הרוחב שלו */
+  .actions .requests-btn {
+    grid-column: span 2;
+    margin-top: 0.25rem !important;
+  }
 }

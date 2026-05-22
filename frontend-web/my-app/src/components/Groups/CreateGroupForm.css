@@ -2,38 +2,39 @@
   background-color: #f7fafc;
   border-radius: 0.75rem; 
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
-  padding: 2rem; 
+  padding: 1.25rem; /* מוקטן לנייד */
   width: 100%;
   max-width: 600px; 
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .title {
-  font-size: 2.25rem; 
+  font-size: 1.75rem; /* מותאם לנייד */
   font-weight: 700; 
   color: #2d3748;
-  margin-bottom: 1.5rem; 
+  margin-bottom: 1.25rem; 
   text-align: center; 
 }
 
 .error {
   background-color: #fdecea; 
   border-radius: 0.5rem; 
-  padding: 1rem; 
+  padding: 0.75rem 1rem; 
   color: #c53030; 
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   display: flex;
   align-items: center;
 }
 
 .error svg {
-  margin-right: 0.75rem;
+  margin-inline-end: 0.75rem; /* תמיכה בדו-כיווניות */
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem; 
+  gap: 1.25rem; 
 }
 
 .formGroup {
@@ -42,10 +43,10 @@
 }
 
 .label {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500; 
   color: #4a5568;
-  margin-bottom: 0.5rem; 
+  margin-bottom: 0.4rem; 
 }
 
 .input,
@@ -57,6 +58,8 @@
   font-size: 1rem;
   color: #2d3748;
   transition: border-color 0.15s ease-in-out;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .input:focus,
@@ -69,15 +72,16 @@
 
 .validationError {
   color: #e53e3e;
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   margin-top: 0.25rem;
+  text-align: start;
 }
 
 .privateGroup {
   background-color: #edf2f7;
   border-radius: 0.5rem;
   padding: 1rem;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -88,12 +92,13 @@
   align-items: center;
   font-size: 1rem;
   color: #4a5568;
+  cursor: pointer;
 }
 
 .privateGroupLabel input[type="checkbox"] {
-  margin-right: 0.5rem;
-  width: 1.25rem;
-  height: 1.25rem;
+  margin-inline-end: 0.5rem;
+  width: 1.35rem; /* מוגדל מעט לנוחות לחיצה באצבע */
+  height: 1.35rem;
   accent-color: #63b3ed; 
 }
 
@@ -102,15 +107,18 @@
   align-items: center;
   font-size: 0.875rem;
   color: #718096;
+  line-height: 1.4;
 }
 
 .privateGroupInfo svg {
-  margin-right: 0.5rem;
+  margin-inline-end: 0.5rem;
+  flex-shrink: 0;
 }
 
 .buttons {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column-reverse; /* בנייד כפתור הביטול יהיה מתחת לאישור */
+  gap: 0.75rem;
   margin-top: 1.5rem;
 }
 
@@ -118,16 +126,19 @@
 .createButton {
   border: none;
   border-radius: 0.5rem;
-  padding: 0.75rem 1.5rem;
+  padding: 0.85rem 1.5rem;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: background-color 0.15s ease-in-out;
+  width: 100%; /* רוחב מלא לנייד */
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .cancelButton {
   background-color: #edf2f7;
   color: #4a5568;
-  margin-right: 0.75rem;
 }
 
 .cancelButton:hover {
@@ -146,4 +157,25 @@
 .createButton:disabled {
   background-color: #a0aec0;
   cursor: not-allowed;
+}
+
+/* טאבלטים ומחשבים */
+@media (min-width: 480px) {
+  .container {
+    padding: 2rem;
+  }
+  .title {
+    font-size: 2.25rem;
+  }
+  .buttons {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .cancelButton,
+  .createButton {
+    width: auto;
+  }
+  .cancelButton {
+    margin-inline-end: 0.75rem;
+  }
 }

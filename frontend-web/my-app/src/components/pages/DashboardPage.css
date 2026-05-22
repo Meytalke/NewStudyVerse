@@ -9,6 +9,7 @@
   flex-grow: 1;
   flex-direction: row;
 }
+
 [dir="rtl"] .dashboard-page {
     direction: rtl !important;
 }
@@ -18,32 +19,40 @@
     text-align: right;
 }
 
-[dir="rtl"] .dashboard-content {
-    direction: rtl !important;
-    text-align: right;
-}
 [dir="rtl"] .dashboard-card {
     direction: rtl !important;
     text-align: right;
 }
-[dir="rtl"] .dashboard-card h2{
+
+[dir="rtl"] .dashboard-card h2 {
     direction: rtl !important;
     text-align: right;
 }
 
-[dir="rtl"] .chart-svg{
+[dir="rtl"] .chart-svg {
     direction: rtl !important;
     text-align: right;
 }
+
 .dashboard-main {
   flex-grow: 1;
   padding: 20px;
   direction: ltr;
+  box-sizing: border-box;
+  width: 100%; /* מבטיח שהתוכן לא יחרוג מהאלמנט האב */
+}
+
+[dir="rtl"] .dashboard-main {
+  direction: rtl !important;
 }
 
 .dashboard-header {
   margin-bottom: 30px;
   text-align: left;
+}
+
+[dir="rtl"] .dashboard-header {
+  text-align: right;
 }
 
 .welcome-title {
@@ -92,6 +101,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .dashboard-card h2 {
@@ -101,6 +111,10 @@
   border-bottom: 2px solid #eee;
   padding-bottom: 10px;
   text-align: left;
+}
+
+[dir="rtl"] .dashboard-card h2 {
+  text-align: right;
 }
 
 /* Stats Overview Card */
@@ -147,7 +161,7 @@
 .post-rank {
   font-size: 1.2rem;
   color: #777;
-  margin-right: 15px;
+  margin-inline-end: 15px; /* הפיכה לתומך כיווניות */
   width: 20px;
   text-align: center;
 }
@@ -178,8 +192,16 @@
     text-align: right; 
 }
 
+[dir="rtl"] .post-meta-grid .grid-label {
+    text-align: left; /* היפוך נכון של יישור כותרות הגריד בעברית */
+}
+
 .post-meta-grid .grid-value {
     text-align: left;
+}
+
+[dir="rtl"] .post-meta-grid .grid-value {
+    text-align: right;
 }
 
 .post-meta-grid .grid-value span { 
@@ -257,7 +279,7 @@
   background-color: #e0e0e0;
   padding: 3px 5px;
   border-radius: 4px;
-  margin-right: 5px;
+  margin-inline-end: 5px; /* הפיכה לתומך כיווניות */
 }
 
 .recent-group-card a.group-link {
@@ -316,7 +338,7 @@
 
 .post-type-icon {
   font-size: 1.5rem;
-  margin-right: 10px;
+  margin-inline-end: 10px; /* הפיכה לתומך כיווניות */
 }
 
 .recent-post-item .post-info {
@@ -344,8 +366,100 @@
   border-radius: 50%;
   text-decoration: none;
   font-size: 1rem;
+  flex-shrink: 0;
 }
 
 .recent-post-item a.post-link:hover {
   background-color: #e0e0e0;
 }
+
+/* ==========================================================================
+   התאמות מדויקות למובייל - מניעת גלילה אופקית ושבירת מבנה קשיח
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* הפיכת העטיפה הכללית לטור - שובר את הקישיון עם הסיידבר */
+    .dashboard-content {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .dashboard-main {
+        padding: 15px;
+        width: 100%;
+        overflow-x: hidden; /* הגנה סופית מפני זליגת פיקסלים */
+    }
+
+    .welcome-title {
+        font-size: 1.8rem;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr; /* טור אחד לקארדים הראשיים */
+        gap: 15px;
+    }
+
+    /* שבירת פריסת ה-row של הפוסטים והקבוצות האחרונים למבנה אנכי נוח */
+    .dashboard-recent-section {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .dashboard-card h2 {
+        font-size: 1.3rem;
+    }
+
+    .recent-groups-grid {
+        grid-template-columns: repeat(2, 1fr); /* שני טורים קומפקטיים לקבוצות בנייד */
+        gap: 8px;
+    }
+    
+    .recent-group-card {
+        padding: 10px;
+    }
+    
+    .recent-group-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* פריסת ריבוע של 2X2 לסטטיסטיקות */
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .recent-groups-grid {
+        grid-template-columns: 1fr; /* במסכים קטנים במיוחד (טלפונים צרים), טור אחד קריא */
+    }
+}
+
+/* ==========================================================================
+   העלמה מוחלטת של ה-Sidebar הישן במובייל בכל רחבי האפליקציה
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* מעלים לחלוטין כל אלמנט של סיידבר פנימי שקיים בעמודים */
+    .sidebar-footer-style,
+    .sidebar-container,
+    aside,
+    [class*="sidebar"] {
+        display: none !important;
+        width: 0 !important;
+        max-width: 0 !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        position: absolute !important;
+    }
+
+    /* מבטיח שאזור התוכן המרכזי יתפוס 100% רוחב מסך ולא ישאיר שוליים ריקים */
+    .main-content,
+    .dashboard-content,
+    .dashboard-page {
+        width: 100% !important;
+        max-width: 100vw !important;
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+

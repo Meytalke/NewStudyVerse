@@ -1,3 +1,14 @@
+.chat-main { 
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #fdfdfd;
+    box-sizing: border-box;
+    position: relative;
+    min-height: 0;
+}
+
 .chat-header {
     flex-shrink: 0; 
     display: flex;
@@ -20,7 +31,8 @@
     height: 65px;
     background-color: #dce0ff; 
     border-radius: 50%;
-    margin-right: 20px; 
+    margin-inline-end: 20px; /* תמיכה בכיווניות */
+    margin-right: 0;
     position: relative;
     flex-shrink: 0;
     display: flex;
@@ -35,12 +47,16 @@
 .chat-user-info .online-indicator {
     position: absolute;
     bottom: 3px; 
-    right: 3px; 
+    inset-inline-end: 3px; /* תמיכה בכיווניות */
     width: 18px; 
     height: 18px;
     background-color: #28a745; 
     border-radius: 50%;
     border: 4px solid white; 
+}
+
+.chat-user-info .user-details {
+    text-align: start;
 }
 
 .chat-user-info .user-details h3 {
@@ -54,6 +70,7 @@
     font-size: 1.05rem; 
     color: #7a7a7a;
     margin-top: 4px;
+    display: block;
 }
 
 .chat-actions {
@@ -107,7 +124,6 @@
     background: #999;
 }
 
-
 .chat-messages > p { 
     text-align: center;
     padding: 2rem; 
@@ -144,6 +160,8 @@
     background-color: #ffffff;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.08); 
     z-index: 1;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .chat-input {
@@ -151,12 +169,15 @@
     padding: 16px 22px;
     border: 1px solid #dcdcdc; 
     border-radius: 30px;
-    margin-right: 15px; 
+    margin-inline-end: 15px; /* מותאם ל-RTL/LTR */
+    margin-right: 0;
     font-size: 1.05rem;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     background-color: #f8f9fc; 
     color: #333;
     outline: none; 
+    box-sizing: border-box;
+    min-width: 0; /* מונע מהאינפוט לדחוף אלמנטים החוצה */
 }
 
 .chat-input:focus {
@@ -176,7 +197,7 @@
     justify-content: center;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-    margin-left: 15px;
+    flex-shrink: 0;
     box-shadow: 0 3px 10px rgba(79, 70, 229, 0.25); 
 }
 
@@ -186,56 +207,75 @@
     box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
 }
 
-.chat-input-container .btn-icon {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #6a6a6a; 
-    padding: 12px; 
-    margin: 0 6px; 
-    border-radius: 50%;
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
-}
-
-.chat-input-container .btn-icon:hover {
-    background-color: #f0f2f5;
-    color: #333;
-    transform: scale(1.1);
-}
-
+/* ==========================================================================
+   התאמות מדויקות למובייל למניעת קריסת גובה ומסכים לבנים
+   ========================================================================== */
 @media (max-width: 768px) {
-    .chat-header,
-    .chat-input-container {
-        padding: 15px 20px; 
+    .chat-header {
+        padding: 12px 15px !important;
+        height: 60px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    /* מרווח קבוע ב-Header בשביל החץ חזור הצף שהגדרנו ב-React */
+    .chat-page-container .chat-header {
+        padding-inline-start: 60px !important;
     }
 
     .chat-user-info .user-avatar {
-        width: 55px;
-        height: 55px;
-        font-size: 1.5rem;
+        width: 40px !important; 
+        height: 40px !important;
+        font-size: 1.1rem !important;
+        margin-inline-end: 10px !important;
+    }
+
+    .chat-user-info .online-indicator {
+        width: 12px;
+        height: 12px;
+        bottom: 1px;
+        inset-inline-end: 1px;
+        border-width: 2px;
     }
 
     .chat-user-info .user-details h3 {
-        font-size: 1.3rem;
+        font-size: 1.1rem !important;
     }
+
     .chat-user-info .user-status {
-        font-size: 0.95rem;
+        font-size: 0.85rem !important;
+        margin-top: 1px;
     }
 
     .chat-messages {
-        padding: 20px;
+        padding: 15px !important;
+    }
+
+    .chat-messages > p {
+        font-size: 1rem;
+        max-width: 90%;
+        padding: 1.5rem 1rem;
+    }
+
+    /* סידור אזור ה-Input בתחתית שלא יקרוס תחת המקלדת הווירטואלית */
+    .chat-input-container {
+        padding: 10px 12px !important;
+        height: 60px;
+        gap: 8px;
     }
 
     .chat-input {
-        padding: 12px 18px;
+        padding: 10px 15px !important;
+        font-size: 1rem !important; /* מונע זום אוטומטי מעצבן ב-iOS (אייפון) */
+        margin-inline-end: 8px !important;
     }
 
     .btn-send {
-        width: 50px;
-        height: 50px;
+        width: 42px !important;
+        height: 42px !important;
     }
 
-    .chat-input-container .btn-icon {
-        padding: 10px;
+    .btn-send svg {
+        width: 16px;
+        height: 16px;
     }
 }
