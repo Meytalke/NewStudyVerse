@@ -421,74 +421,77 @@
     }
 }
 
+/* ==========================================================================
+   Responsive Mobile Adjustments (max-width: 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
-    .chat-page-container {
-        margin: 0;
-        border-radius: 0;
-        flex-direction: column;
-        height: 100vh;
+    /* הגדלת הספציפיות של הקונטיינר הראשי */
+    div.chat-page-container {
+        margin: 10px auto !important;
+        border-radius: 12px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+        border: 1px solid #e0e0e0 !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        height: calc(100vh - 90px) !important;
+        max-height: calc(100vh - 90px) !important;
     }
 
-    .chat-sidebar {
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1px solid #e0e0e0;
-        border-radius: 0;
-        padding-bottom: 20px; 
+    /* תיקון הדריסה הגלובלית: מנצחים את הסלקטור של הדשבורד בעזרת הגדרת האלמנט (div) */
+    div.chat-page-container div.chat-sidebar {
+        display: flex !important;          /* מחזיר אותו לחיים ב-100% */
+        visibility: visible !important;     /* מנצח את ה-hidden */
+        opacity: 1 !important;              /* מנצח את ה-0 */
+        position: relative !important;      /* מנצח את ה-absolute */
+        width: 100% !important;             /* מנצח את ה-0 רוחב */
+        max-width: 100% !important;
+        height: auto !important;
+        max-height: 40vh !important;
+        flex-shrink: 0 !important;
+        border-right: none !important;
+        border-bottom: 1px solid #e0e0e0 !important;
+        padding: 20px !important;
+        box-sizing: border-box !important;
     }
 
-    .chat-main {
-        flex: 1;
-        border-radius: 0;
+    /* פריסת רשימת השיחות */
+    div.chat-page-container .conversation-list {
+        display: block !important;
+        width: 100% !important;
+        max-height: 180px !important;
+        overflow-y: auto !important;
     }
 
+    /* חלון הצאט הראשי / Welcome */
+    div.chat-page-container div.chat-main {
+        display: flex !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        width: 100% !important;
+        height: auto !important;
+        flex-grow: 1 !important;
+        border-radius: 0 0 12px 12px !important;
+    }
+
+    /* התאמות קלות פנימיות */
     .chat-sidebar-title {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
+        font-size: 1.6rem !important;
+        margin-bottom: 15px !important;
     }
     .back-button {
-        margin-bottom: 20px;
+        margin-bottom: 15px !important;
     }
-
     .start-new-chat-button {
-        padding: 12px 15px;
+        padding: 10px 15px !important;
+        margin-bottom: 15px !important;
     }
-
     .conversation-item {
-        padding: 14px 18px;
+        padding: 12px 16px !important;
     }
-
-    .conversation-avatar-placeholder {
-        width: 50px;
-        height: 50px;
-        font-size: 1.4rem;
-    }
-
-    .new-chat-modal-content {
-        width: 95%;
-        max-width: 95%;
-        padding: 20px;
-    }
-    .new-chat-modal-title {
-        font-size: 1.6rem;
-    }
-    .new-chat-no-users-message {
-        font-size: 1.1rem;
-        padding: 20px;
-    }
-    .new-chat-no-users-message::before {
-        font-size: 2.2rem;
-    }
-    .new-chat-user-item {
-        padding: 12px;
-    }
-    .new-chat-user-avatar-placeholder {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
-    }
-    .new-chat-user-name {
-        font-size: 1rem;
+    .no-chat-selected-panel {
+        padding: 20px !important;
+        height: 100% !important;
+        justify-content: center !important;
     }
 }

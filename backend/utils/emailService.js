@@ -4,6 +4,9 @@ const { getUserFieldByCustomUserId } = require('./userUtils');
 
 const transporter = nodemailer.createTransport({
   service: "Gmail",
+  host: "smtp.gmail.com",
+  port: 587,             
+  secure: false,         
   auth: {
     user: config.EMAIL_USERNAME,
     pass: config.EMAIL_PASSWORD

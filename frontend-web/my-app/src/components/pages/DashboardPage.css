@@ -451,7 +451,6 @@
     }
 
     /* מבטיח שאזור התוכן המרכזי יתפוס 100% רוחב מסך ולא ישאיר שוליים ריקים */
-    .main-content,
     .dashboard-content,
     .dashboard-page {
         width: 100% !important;
